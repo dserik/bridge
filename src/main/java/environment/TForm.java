@@ -36,8 +36,8 @@ public class TForm extends JFrame {
   try{
       UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
   }catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException ex) {
-      ex.printStackTrace();
-  }               
+    System.out.println(ex.getMessage());
+  }
   setSize(530, 730); 
   setLocation(100, 100); 
   setDefaultCloseOperation( EXIT_ON_CLOSE );

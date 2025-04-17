@@ -1,6 +1,5 @@
 package databases;
 
-import com.sybase.jdbc3.jdbc.SybDriver;
 import constants.DBMS;
 import constants.Keys;
 import environment.ColumnListElement;
@@ -16,6 +15,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import net.sourceforge.jtds.jdbc.Driver;
 
 public class Sybase implements IDatabase{
 
@@ -47,13 +47,13 @@ public class Sybase implements IDatabase{
     public void connectToDb(String fileLocation, String user, String password,DefaultComboBoxModel cbMod){
         Statement stmt = null;
         cbFreezed = true;
-        SybDriver sybDriver;
+        Driver sybDriver;
         @SuppressWarnings("rawtypes")
         Class c;
         
         try {
             c = Class.forName("com.sybase.jdbc3.jdbc.SybDriver");
-            sybDriver = (SybDriver)c.newInstance();              
+            sybDriver = (Driver)c.newInstance();
             DriverManager.registerDriver(sybDriver);
             conn = DriverManager.getConnection("jdbc:sybase:"+fileLocation, user, password);
             connUrl = 

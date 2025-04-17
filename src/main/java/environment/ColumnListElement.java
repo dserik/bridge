@@ -1,5 +1,5 @@
-package environment; 
-import constants.Keys; 
+package environment;
+import constants.Keys;
 import javax.swing.*; 
  
 public class ColumnListElement { 
